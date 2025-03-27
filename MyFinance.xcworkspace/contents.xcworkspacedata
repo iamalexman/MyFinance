@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:MyFinance.xcodeproj">
+   </FileRef>
+   <Group
+      location = "group:Apps"
+      name = "Apps">
+      <FileRef
+         location = "group:FinanceApp/FinanceApp.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "container:Apps/FinanceContracts/FinanceContracts.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:Components"
+      name = "Components">
+      <FileRef
+         location = "group:SwiftUIComponents/SwiftUIComponents.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:UIKitComponents/UIKitComponents.xcodeproj">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:Network/Network.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Utilities/Utilities.xcodeproj">
+   </FileRef>
+</Workspace>
