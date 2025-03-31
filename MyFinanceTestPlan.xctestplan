@@ -1,0 +1,35 @@
+{
+  "configurations" : [
+    {
+      "id" : "677891CD-EE1E-4056-8D13-17CE78ECDEE9",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "addressSanitizer" : {
+      "enabled" : true
+    },
+    "testTimeoutsEnabled" : true,
+    "undefinedBehaviorSanitizerEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Network\/Network.xcodeproj",
+        "identifier" : "5E088C5F2D9ADBEF008FE1ED",
+        "name" : "NetworkTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Apps\/FinanceApp\/FinanceApp.xcodeproj",
+        "identifier" : "5EE465C82D9AF6EC007F7B57",
+        "name" : "FinanceAppTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -7,12 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E088C642D9ADBEF008FE1ED /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB9E5C22D9821F1008A3BBD /* Network.framework */; platformFilter = ios; };
+		5E088C6C2D9ADC0C008FE1ED /* MockFinanceRequestServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E088C6A2D9ADC0C008FE1ED /* MockFinanceRequestServiceTests.swift */; };
+		5EB73E8D2D9ADFF4004C0EAC /* MockServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB73E8C2D9ADFF2004C0EAC /* MockServerTests.swift */; };
 		5EB9E5CF2D982201008A3BBD /* Network.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EB9E5CD2D982201008A3BBD /* Network.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5EB9E5D32D982264008A3BBD /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9E5D12D982264008A3BBD /* MockServer.swift */; };
 		5EB9E5D42D982264008A3BBD /* MockFinanceRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9E5D02D982264008A3BBD /* MockFinanceRequestService.swift */; };
 		5EB9E6EE2D98B637008A3BBD /* FinanceContracts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB9E6ED2D98B637008A3BBD /* FinanceContracts.framework */; };
 		5EB9E6EF2D98B637008A3BBD /* FinanceContracts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB9E6ED2D98B637008A3BBD /* FinanceContracts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5E088C652D9ADBEF008FE1ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EB9E5B92D9821F1008A3BBD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EB9E5C12D9821F1008A3BBD;
+			remoteInfo = Network;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		5EB9E6F02D98B637008A3BBD /* Embed Frameworks */ = {
@@ -29,6 +42,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5E088C602D9ADBEF008FE1ED /* NetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E088C6A2D9ADC0C008FE1ED /* MockFinanceRequestServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFinanceRequestServiceTests.swift; sourceTree = "<group>"; };
+		5EB73E8C2D9ADFF2004C0EAC /* MockServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServerTests.swift; sourceTree = "<group>"; };
 		5EB9E5C22D9821F1008A3BBD /* Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB9E5CD2D982201008A3BBD /* Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
 		5EB9E5D02D982264008A3BBD /* MockFinanceRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFinanceRequestService.swift; sourceTree = "<group>"; };
@@ -37,6 +53,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5E088C5D2D9ADBEF008FE1ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E088C642D9ADBEF008FE1ED /* Network.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EB9E5BF2D9821F1008A3BBD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -48,11 +72,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E088C6B2D9ADC0C008FE1ED /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5EB73E8B2D9ADFA5004C0EAC /* Server */,
+				5EB73E8A2D9ADF9D004C0EAC /* Services */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		5EB73E8A2D9ADF9D004C0EAC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5E088C6A2D9ADC0C008FE1ED /* MockFinanceRequestServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5EB73E8B2D9ADFA5004C0EAC /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				5EB73E8C2D9ADFF2004C0EAC /* MockServerTests.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
 		5EB9E5B82D9821F1008A3BBD = {
 			isa = PBXGroup;
 			children = (
 				5EB9E5D02D982264008A3BBD /* MockFinanceRequestService.swift */,
 				5EB9E5D12D982264008A3BBD /* MockServer.swift */,
+				5E088C6B2D9ADC0C008FE1ED /* Tests */,
 				5EB9E5C32D9821F1008A3BBD /* Products */,
 				5EB9E5CD2D982201008A3BBD /* Network.h */,
 				5EB9E6EC2D98B637008A3BBD /* Frameworks */,
@@ -63,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				5EB9E5C22D9821F1008A3BBD /* Network.framework */,
+				5E088C602D9ADBEF008FE1ED /* NetworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,6 +140,26 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		5E088C5F2D9ADBEF008FE1ED /* NetworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E088C692D9ADBEF008FE1ED /* Build configuration list for PBXNativeTarget "NetworkTests" */;
+			buildPhases = (
+				5E088C5C2D9ADBEF008FE1ED /* Sources */,
+				5E088C5D2D9ADBEF008FE1ED /* Frameworks */,
+				5E088C5E2D9ADBEF008FE1ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E088C662D9ADBEF008FE1ED /* PBXTargetDependency */,
+			);
+			name = NetworkTests;
+			packageProductDependencies = (
+			);
+			productName = NetworkTests;
+			productReference = 5E088C602D9ADBEF008FE1ED /* NetworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5EB9E5C12D9821F1008A3BBD /* Network */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5EB9E5C82D9821F1008A3BBD /* Build configuration list for PBXNativeTarget "Network" */;
@@ -117,8 +188,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					5E088C5F2D9ADBEF008FE1ED = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					5EB9E5C12D9821F1008A3BBD = {
 						CreatedOnToolsVersion = 16.2;
 						LastSwiftMigration = 1620;
@@ -140,11 +215,19 @@
 			projectRoot = "";
 			targets = (
 				5EB9E5C12D9821F1008A3BBD /* Network */,
+				5E088C5F2D9ADBEF008FE1ED /* NetworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5E088C5E2D9ADBEF008FE1ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EB9E5C02D9821F1008A3BBD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -155,6 +238,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5E088C5C2D9ADBEF008FE1ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EB73E8D2D9ADFF4004C0EAC /* MockServerTests.swift in Sources */,
+				5E088C6C2D9ADC0C008FE1ED /* MockFinanceRequestServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EB9E5BE2D9821F1008A3BBD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -166,7 +258,58 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5E088C662D9ADBEF008FE1ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 5EB9E5C12D9821F1008A3BBD /* Network */;
+			targetProxy = 5E088C652D9ADBEF008FE1ED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		5E088C672D9ADBEF008FE1ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QNY927L322;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = OneMoreOrg.NetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		5E088C682D9ADBEF008FE1ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QNY927L322;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = OneMoreOrg.NetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		5EB9E5C92D9821F1008A3BBD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -374,6 +517,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5E088C692D9ADBEF008FE1ED /* Build configuration list for PBXNativeTarget "NetworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E088C672D9ADBEF008FE1ED /* Debug */,
+				5E088C682D9ADBEF008FE1ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5EB9E5BC2D9821F1008A3BBD /* Build configuration list for PBXProject "Network" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -25,7 +25,7 @@ extension FinanceScreenModel {
         
         task = Task {
             
-            let result = await requestService.fetchTransactions(for: selectedDay)
+            let result = try await requestService.fetchTransactions(for: selectedDay)
             
             switch result {
             case .success(let model):

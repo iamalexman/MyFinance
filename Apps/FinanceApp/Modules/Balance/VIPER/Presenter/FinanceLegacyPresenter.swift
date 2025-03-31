@@ -15,8 +15,8 @@ final class FinanceLegacyPresenter {
     let interactor: FinanceLegacyInteractorProtocol
     let router: FinanceLegacyRouterInputProtocol
     
-    private(set) var hasError = false
-    private(set) var isLoading = true
+    var hasError = false
+    var isLoading = true
     
     var selectedDay = 0
     var balance: FinanceLegacyEntity { interactor.entity }

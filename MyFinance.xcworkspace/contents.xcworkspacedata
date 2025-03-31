@@ -30,4 +30,7 @@
    <FileRef
       location = "group:Utilities/Utilities.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:MyFinanceTestPlan.xctestplan">
+   </FileRef>
 </Workspace>

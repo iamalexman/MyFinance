@@ -18,7 +18,7 @@ public final class FinanceRequestService {
 
 extension FinanceRequestService: FinanceRequestServiceProtocol {
     
-    public func fetchTransactions(for day: Int) async -> Result<FinanceModel, Error> {
+    public func fetchTransactions(for day: Int) async throws -> Result<FinanceModel, Error> {
         await requestService.fetchTransactions(for: day)
     }
 }

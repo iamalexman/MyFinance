@@ -18,7 +18,7 @@ import FinanceContracts
 @MainActor
 final class FinanceLegacyInteractor {
     
-    let requestService: FinanceRequestServiceProtocol
+    private let requestService: FinanceRequestServiceProtocol
     
     var entity = FinanceLegacyEntity()
     
@@ -31,7 +31,7 @@ extension FinanceLegacyInteractor: FinanceLegacyInteractorProtocol {
     
     func fetchData(_ selectedDay: Int) async throws {
 
-        let result = await requestService.fetchTransactions(for: selectedDay)
+        let result = try await requestService.fetchTransactions(for: selectedDay)
         
         switch result {
         case .success(let model):

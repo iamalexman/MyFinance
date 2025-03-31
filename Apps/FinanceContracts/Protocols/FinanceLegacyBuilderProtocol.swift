@@ -7,5 +7,5 @@
 
 public protocol FinanceRequestServiceProtocol {
     
-    func fetchTransactions(for day: Int) async -> Result<FinanceModel, Error>
+    func fetchTransactions(for day: Int) async throws -> Result<FinanceModel, Error>
 }
