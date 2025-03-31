@@ -18,7 +18,19 @@ final class MockServerTests: XCTestCase {
         server = MockServer.shared
     }
     
-    func test_getTransactions_whenDayIs1_returnsNil() async {
+    func test_getTransactions_whenDayIsValid_returnsData() async {
+        
+        // Given
+        let validDay = 2
+        
+        // When
+        let transactions = await server.getTransactions(for: validDay)
+        
+        // Then
+        XCTAssertNotNil(transactions)
+    }
+    
+    func test_getTransactions_whenDayIsInvalid_returnsNil() async {
         
         // Given
         let invalidDay = 1
@@ -27,7 +39,7 @@ final class MockServerTests: XCTestCase {
         let transactions = await server.getTransactions(for: invalidDay)
         
         // Then
-        XCTAssertNil(transactions, "For day \(invalidDay) should return nil")
+        XCTAssertNil(transactions)
     }
     
     func test_getTransactions_whenDayIs6_returnsEmptyModel() async {
@@ -39,10 +51,7 @@ final class MockServerTests: XCTestCase {
         let transactions = await server.getTransactions(for: dayWithEmptyData)
         
         // Then
-        XCTAssertNotNil(transactions, "For day \(dayWithEmptyData) should return not nil")
-        XCTAssertTrue(
-            transactions?.transactions.isEmpty ?? false,
-            "Transactions array for day \(dayWithEmptyData) should be empty"
-        )
+        XCTAssertNotNil(transactions)
+        XCTAssertTrue(transactions?.transactions.isEmpty ?? false)
     }
 }

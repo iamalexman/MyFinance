@@ -42,7 +42,7 @@ final class FinanceLegacyInteractorTests: XCTestCase {
         do {
             try await interactor.fetchData(testDay)
         } catch {
-            XCTFail("Unexpected error: \(error)")
+            XCTFail()
         }
         
         // Then
@@ -95,9 +95,6 @@ final class FinanceLegacyInteractorTests: XCTestCase {
         // Then
         XCTAssertEqual(interactor.entity.sortedTransactions.first?.timeStamp, "09:00")
     }
-}
-
-extension XCTestCase {
     
     func XCTAssertThrowsError<T>(
         _ expression: @autoclosure () async throws -> T,

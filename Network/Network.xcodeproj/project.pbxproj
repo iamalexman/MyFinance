@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E088C642D9ADBEF008FE1ED /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB9E5C22D9821F1008A3BBD /* Network.framework */; platformFilter = ios; };
-		5E088C6C2D9ADC0C008FE1ED /* MockFinanceRequestServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E088C6A2D9ADC0C008FE1ED /* MockFinanceRequestServiceTests.swift */; };
+		5E088C6C2D9ADC0C008FE1ED /* FinanceRequestServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E088C6A2D9ADC0C008FE1ED /* FinanceRequestServiceTests.swift */; };
 		5EB73E8D2D9ADFF4004C0EAC /* MockServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB73E8C2D9ADFF2004C0EAC /* MockServerTests.swift */; };
 		5EB9E5CF2D982201008A3BBD /* Network.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EB9E5CD2D982201008A3BBD /* Network.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5EB9E5D32D982264008A3BBD /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9E5D12D982264008A3BBD /* MockServer.swift */; };
@@ -43,7 +43,7 @@
 
 /* Begin PBXFileReference section */
 		5E088C602D9ADBEF008FE1ED /* NetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E088C6A2D9ADC0C008FE1ED /* MockFinanceRequestServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFinanceRequestServiceTests.swift; sourceTree = "<group>"; };
+		5E088C6A2D9ADC0C008FE1ED /* FinanceRequestServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceRequestServiceTests.swift; sourceTree = "<group>"; };
 		5EB73E8C2D9ADFF2004C0EAC /* MockServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServerTests.swift; sourceTree = "<group>"; };
 		5EB9E5C22D9821F1008A3BBD /* Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB9E5CD2D982201008A3BBD /* Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 		5EB73E8A2D9ADF9D004C0EAC /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5E088C6A2D9ADC0C008FE1ED /* MockFinanceRequestServiceTests.swift */,
+				5E088C6A2D9ADC0C008FE1ED /* FinanceRequestServiceTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -243,7 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EB73E8D2D9ADFF4004C0EAC /* MockServerTests.swift in Sources */,
-				5E088C6C2D9ADC0C008FE1ED /* MockFinanceRequestServiceTests.swift in Sources */,
+				5E088C6C2D9ADC0C008FE1ED /* FinanceRequestServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

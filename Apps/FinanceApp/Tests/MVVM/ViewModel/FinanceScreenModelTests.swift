@@ -27,8 +27,17 @@ final class FinanceScreenModelTests: XCTestCase {
     }
 
     func test_loadData_whenCalled_shouldResetStateAndStartLoading() {
+        
         // Given
-        screenModel.entity.transactions = [Transaction.stub()]
+        screenModel.entity.transactions = [
+            Transaction(
+                type: "General",
+                title: "Test",
+                amount: 0,
+                timeStamp: "12:00"
+            )
+        ]
+        
         screenModel.hasError = true
         
         // When
@@ -44,22 +53,23 @@ final class FinanceScreenModelTests: XCTestCase {
         
         // Given
         let testData = [
-            Transaction.stub(title: "Salary", amount: 1000),
-            Transaction.stub(title: "Rent", amount: -500)
-        ]
-        
-        mockRequestService.stubResult = .success(
-            FinanceModel(
-                transactions: testData.map {
-                    TransactionModel(
-                        image: "Image",
-                        type: $0.type,
-                        name: $0.title,
-                        amount: $0.amount,
-                        timeStamp: $0.timeStamp)
-                }
+            TransactionModel(
+                image: "test",
+                type: "General",
+                name: "Salary",
+                amount: 1000,
+                timeStamp: "12:00"
+            ),
+            TransactionModel(
+                image: "test",
+                type: "General",
+                name: "Rent",
+                amount: -500,
+                timeStamp: "12:05"
             )
-        )
+        ]
+
+        mockRequestService.stubResult = .success(FinanceModel(transactions: testData))
         
         // When
         screenModel.loadData()
@@ -169,15 +179,3 @@ final class MockFinanceRequestService: FinanceRequestServiceProtocol {
 }
 
 final class MockFinanceRouter: FinanceRouterProtocol { }
-
-extension Transaction {
-    
-    static func stub(title: String = "Test", amount: Int = 0) -> Transaction {
-        Transaction(
-            type: "General",
-            title: title,
-            amount: amount,
-            timeStamp: "12:00"
-        )
-    }
-}

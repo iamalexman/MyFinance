@@ -1,5 +1,5 @@
 //
-//  MockFinanceRequestServiceTests.swift
+//  FinanceRequestServiceTests.swift
 //  NetworkTests
 //
 //  Created by Alex Kuznetcov on 3/31/25.
@@ -9,7 +9,7 @@ import XCTest
 @testable import Network
 import FinanceContracts
 
-final class MockFinanceRequestServiceTests: XCTestCase {
+final class FinanceRequestServiceTests: XCTestCase {
     
     private var requestService: MockFinanceRequestService!
     
@@ -29,9 +29,9 @@ final class MockFinanceRequestServiceTests: XCTestCase {
         // Then
         switch result {
         case .success(let model):
-            XCTAssertFalse(model.transactions.isEmpty, "Transactions array should not be empty")
+            XCTAssertFalse(model.transactions.isEmpty)
         case .failure:
-            XCTFail("Expected a success for day \(validDay)")
+            XCTFail()
         }
     }
     
@@ -46,12 +46,11 @@ final class MockFinanceRequestServiceTests: XCTestCase {
         // Then
         switch result {
         case .success:
-            XCTFail("Expected an error for day \(invalidDay)")
+            XCTFail()
         case .failure(let error):
             XCTAssertEqual(
                 error as? MockFinanceRequestService.FinanceError,
-                .serverError,
-                "Expected an error of type serverError"
+                .serverError
             )
         }
     }
@@ -67,12 +66,9 @@ final class MockFinanceRequestServiceTests: XCTestCase {
         // Then
         switch result {
         case .success(let model):
-            XCTAssertTrue(
-                model.transactions.isEmpty,
-                "Empty transactions for \(dayWithEmptyData)"
-            )
+            XCTAssertTrue(model.transactions.isEmpty)
         case .failure:
-            XCTFail("Expected an empty array")
+            XCTFail()
         }
     }
 }
