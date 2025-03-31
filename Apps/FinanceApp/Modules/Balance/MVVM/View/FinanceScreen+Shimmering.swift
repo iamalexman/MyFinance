@@ -37,8 +37,8 @@ extension FinanceScreen {
     }
     
     var transactionsShimmering: some View {
-        ForEach(0...5, id: \.self) { index in transactionShimmering
-            if index != 5 {
+        ForEach(0..<5) { index in transactionShimmering
+            if index < 4 {
                 Divider()
                     .padding(.leading, Constants.horizontalPadding)
             }

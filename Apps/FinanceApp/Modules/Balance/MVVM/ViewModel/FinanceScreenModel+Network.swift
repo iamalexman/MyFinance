@@ -31,6 +31,7 @@ extension FinanceScreenModel {
             case .success(let model):
                 entity.transactions = model.transactions.compactMap { transaction in
                     Transaction(
+                        id: transaction?.id ?? "",
                         type: transaction?.type ?? "",
                         title: transaction?.name ?? "",
                         amount: transaction?.amount ?? 0,

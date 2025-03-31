@@ -8,21 +8,22 @@
 import XCTest
 @testable import FinanceApp
 import FinanceContracts
+import Network
 
 @MainActor
 final class FinanceScreenModelTests: XCTestCase {
     
     var screenModel: FinanceScreenModel!
-    var mockRequestService: MockFinanceRequestService!
-    var mockRouter: MockFinanceRouter!
+    var requestService: MockFinanceRequestService!
+    var router: MockFinanceRouter!
     
     override func setUp() {
         super.setUp()
-        mockRequestService = MockFinanceRequestService()
-        mockRouter = MockFinanceRouter()
+        requestService = MockFinanceRequestService()
+        router = MockFinanceRouter()
         screenModel = FinanceScreenModel(
-            router: mockRouter,
-            requestService: mockRequestService
+            router: router,
+            requestService: requestService
         )
     }
 
@@ -69,7 +70,7 @@ final class FinanceScreenModelTests: XCTestCase {
             )
         ]
 
-        mockRequestService.stubResult = .success(FinanceModel(transactions: testData))
+        requestService.stubResult = .success(FinanceModel(transactions: testData))
         
         // When
         screenModel.loadData()
@@ -84,7 +85,7 @@ final class FinanceScreenModelTests: XCTestCase {
     func test_asyncFetchData_whenFailure_shouldSetErrorState() async {
         
         // Given
-        mockRequestService.stubResult = .failure(MockError.serverError)
+        requestService.stubResult = .failure(FinanceError.serverError)
         
         // When
         screenModel.loadData()
@@ -100,7 +101,6 @@ final class FinanceScreenModelTests: XCTestCase {
     func test_taskCancellation_whenReloading_shouldCancelPreviousRequest() async {
         
         // Given
-        mockRequestService.delay = 0.1
         screenModel.loadData()
         
         // When
@@ -108,7 +108,7 @@ final class FinanceScreenModelTests: XCTestCase {
         
         // Then
         await waitForLoadingCompletion()
-        XCTAssertEqual(mockRequestService.cancellationCount, 1)
+        XCTAssertEqual(requestService.cancellationCount, 1)
     }
     
     // MARK: - State Models Tests
@@ -154,15 +154,9 @@ final class FinanceScreenModelTests: XCTestCase {
     }
 }
 
-// MARK: - Mock Implementations
-enum MockError: Error {
-    case serverError
-}
-
 final class MockFinanceRequestService: FinanceRequestServiceProtocol {
     
     var stubResult: Result<FinanceModel, Error> = .success(FinanceModel(transactions: []))
-    var delay: TimeInterval = 0
     var cancellationCount = 0
     
     func fetchTransactions(for day: Int) async -> Result<FinanceModel, Error> {
@@ -171,7 +165,7 @@ final class MockFinanceRequestService: FinanceRequestServiceProtocol {
             return stubResult
         } catch is CancellationError {
             cancellationCount += 1
-            return .failure(MockError.serverError)
+            return .failure(FinanceError.serverError)
         } catch {
             return .failure(error)
         }

@@ -54,7 +54,7 @@ struct FinanceEntity {
 
 struct Transaction: Identifiable, Equatable {
     
-    let id: UUID = UUID()
+    let id: String
     let type: String
     let title: String
     let amount: Int

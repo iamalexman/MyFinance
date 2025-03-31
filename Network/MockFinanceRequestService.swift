@@ -12,11 +12,12 @@ protocol FinanceRequestServiceProtocol {
     func fetchTransactions(for day: Int) async -> Result<FinanceModel, Error>
 }
 
+public enum FinanceError: Error {
+    case serverError
+}
+
 public final class MockFinanceRequestService: FinanceRequestServiceProtocol {
     
-    enum FinanceError: Error {
-        case serverError
-    }
     
     let server = MockServer()
     

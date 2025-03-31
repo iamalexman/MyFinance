@@ -55,7 +55,8 @@ struct FinanceScreen<ViewModel>: View where ViewModel: FinanceScreenModelProtoco
         .onAppear { viewModel.loadData() }
     }
     
-    @ViewBuilder private var transactionsContent: some View {
+    @ViewBuilder
+    private var transactionsContent: some View {
         if viewModel.hasError, !viewModel.isLoading {
             failure
         } else if viewModel.entity.transactions?.isEmpty ?? true, !viewModel.isLoading {
@@ -148,30 +149,33 @@ struct FinanceScreen<ViewModel>: View where ViewModel: FinanceScreenModelProtoco
     }
     
     private var transactionsList: some View {
-        ForEach(viewModel.entity.sortedTransactions) {
-            transaction in HStack {
-                Text(transaction.type)
-                    .frame(width: 50, height: 50, alignment: .center)
-                    .font(.system(size: 48))
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(transaction.title)
-                    Text(transaction.timeStamp)
-                        .fontWeight(.light)
-                        .foregroundColor(.secondary)
-                }
-                Spacer()
-                Text("\(transaction.amount)")
-                    .font(
-                        .system(.body, design: .monospaced))
-                    .foregroundColor(transaction.amount > 0 ? .accentColor : .red)
-            }
-            .padding(.vertical, 18)
-            .padding(.horizontal, Constants.horizontalPadding)
-            .frame(maxWidth: .infinity, alignment: .leading)
+        ForEach(viewModel.entity.sortedTransactions, id: \.id) { transaction in
+            makeTransactionCell(transaction)
+                .padding(.vertical, 18)
+                .padding(.horizontal, Constants.horizontalPadding)
+                .frame(maxWidth: .infinity, alignment: .leading)
             if transaction != viewModel.entity.sortedTransactions.last {
                 Divider()
                     .padding(.leading, Constants.horizontalPadding)
             }
+        }
+    }
+    
+    private func makeTransactionCell(_ transaction: Transaction) -> some View {
+        HStack {
+            Text(transaction.type)
+                .frame(width: 50, height: 50, alignment: .center)
+                .font(.system(size: 48))
+            VStack(alignment: .leading, spacing: 8) {
+                Text(transaction.title)
+                Text(transaction.timeStamp)
+                    .fontWeight(.light)
+                    .foregroundColor(.secondary)
+            }
+            Spacer()
+            Text("\(transaction.amount)")
+                .font(.system(.body, design: .monospaced))
+                .foregroundColor(transaction.amount > 0 ? .accentColor : .red)
         }
     }
     

@@ -41,6 +41,7 @@ final class MockServer {
     private func makeRandomTransactionModel() -> TransactionModel? {
         stubTransactions.randomElement().map { transaction in
             TransactionModel(
+                id: UUID().uuidString,
                 image: transaction.type,
                 type: transaction.image,
                 name: transaction.name,

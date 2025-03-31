@@ -49,7 +49,7 @@ final class FinanceRequestServiceTests: XCTestCase {
             XCTFail()
         case .failure(let error):
             XCTAssertEqual(
-                error as? MockFinanceRequestService.FinanceError,
+                error as? FinanceError,
                 .serverError
             )
         }
@@ -72,4 +72,3 @@ final class FinanceRequestServiceTests: XCTestCase {
         }
     }
 }
-

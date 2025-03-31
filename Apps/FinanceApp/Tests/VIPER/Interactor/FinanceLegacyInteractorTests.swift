@@ -55,11 +55,11 @@ final class FinanceLegacyInteractorTests: XCTestCase {
         
         // Given
         let testDay = 1
-        requestService.stubResponse = .failure(FinanceErrorTests.serverError)
+        requestService.stubResponse = .failure(FinanceError.serverError)
         
         // When & Then
         await XCTAssertThrowsError(try await interactor.fetchData(testDay)) { error in
-            XCTAssertEqual(error as? FinanceErrorTests, .serverError)
+            XCTAssertEqual(error as? FinanceError, .serverError)
         }
     }
     
@@ -112,13 +112,9 @@ final class FinanceLegacyInteractorTests: XCTestCase {
     }
 }
 
-enum FinanceErrorTests: Error {
-    case serverError
-}
-
 final class MockFinanceRequestServiceTests: FinanceRequestServiceProtocol {
     
-    public var stubResponse: Result<FinanceModel, Error> = .failure(FinanceErrorTests.serverError)
+    public var stubResponse: Result<FinanceModel, Error> = .failure(FinanceError.serverError)
     
     public func fetchTransactions(for day: Int) async -> Result<FinanceModel, Error> {
         stubResponse

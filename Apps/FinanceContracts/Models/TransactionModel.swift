@@ -7,7 +7,7 @@
 
 public struct TransactionModel {
     
-    public let id: UUID = UUID()
+    public let id: String
     public let image: String
     public let type: String
     public let name: String
@@ -15,12 +15,14 @@ public struct TransactionModel {
     public let timeStamp: String?
     
     public init(
+        id: String,
         image: String,
         type: String,
         name: String,
         amount: Int?,
         timeStamp: String?
     ) {
+        self.id = id
         self.image = image
         self.type = type
         self.name = name

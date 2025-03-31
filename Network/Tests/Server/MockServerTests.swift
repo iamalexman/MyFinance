@@ -30,7 +30,7 @@ final class MockServerTests: XCTestCase {
         XCTAssertNotNil(transactions)
     }
     
-    func test_getTransactions_whenDayIsInvalid_returnsNil() async {
+    func test_getTransactions_whenDayIs1_returnsNil() async {
         
         // Given
         let invalidDay = 1
